@@ -38,16 +38,8 @@ body {
 }
 
 .nav-link::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: -5px;
-    right: -5px;
-    bottom: 50%;
-    border: 2px solid white; /* Changed from blue */
-    border-radius: 5px;
-    pointer-events: none;
-    transform: translateY(-50%);
+    content: none !important;
+    display: none !important;
 }
 
 .nav-link.active::before {
