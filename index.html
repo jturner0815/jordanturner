@@ -61,7 +61,7 @@ body {
     justify-content: center;
     flex-direction: column;
     position: relative;
-    background: url('/images/pattern2.png') no-repeat center center/cover;
+    background: url('images/pattern2.png') no-repeat center center/cover;
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Stronger shadow */
     animation: fadeIn 1.5s ease-in-out;
@@ -102,7 +102,7 @@ body {
 
 /* Portfolio section with fade-in effect */
 #portfolio {
-    background-image: url('/images/pattern2.png');
+    background: url('images/pattern2.png') no-repeat center center/cover;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -203,7 +203,7 @@ body {
     <div class="container">
         <!-- Logo Image -->
         <a class="navbar-brand d-flex align-items-center" href="#home">
-           <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Logo" style="height: 60px; margin-right: 10px;">
+           <img src="images/banner.png" alt="Logo">
         </a>
 
         <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
