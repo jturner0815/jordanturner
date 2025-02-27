@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Freelance Data Visualization and Dashboard Creation">
+    
+    <link rel="shortcut icon" href="{{ url_for('static', filename='android-chrome-512x512.png') }}">
+    
+    <title>Jordan Turner's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- AOS Library for Scroll Animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        /* Import Animate.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+body {
+    font-family: 'Montserrat', 'Lato', sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Navbar animation */
+.navbar {
+    animation: fadeInDown 1.2s ease-in-out;
+}
+
+/* Navbar with white active links */
+.nav-link {
+    position: relative;
+    color: white !important;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    right: -5px;
+    bottom: 50%;
+    border: 2px solid white; /* Changed from blue */
+    border-radius: 5px;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.nav-link.active::before {
+    border-color: white;
+}
+
+/* Masthead with darker overlay */
+.masthead {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background: url('/static/assets/img/pattern2.png') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.masthead::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Increased darkness */
+    z-index: 1;
+}
+
+.masthead-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.masthead-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff !important;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Slight glow */
+    animation: fadeInDown 1.5s ease, pulse 3s infinite;
+}
+
+.masthead-subheading {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #fff !important;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    animation: fadeInUp 1.5s ease;
+}
+
+/* Portfolio section with fade-in effect */
+#portfolio {
+    background-image: url('/static/assets/img/pattern2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fadeInUp 1.8s ease-in-out;
+}
+
+/* Portfolio Cards */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.2s infinite;
+}
+
+/* Contact section with better contrast and smooth fade-in */
+#contact {
+    position: relative;
+    background: url('/static/assets/img/pattern2.png') no-repeat center center/cover;
+    color: #fff;
+    padding: 5rem 0;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Increased darkness */
+    z-index: 1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+#contact h2 {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    animation: fadeInDown 1.5s ease-in-out;
+}
+
+/* Contact Form Enhancements */
+#contact input,
+#contact textarea {
+    background: rgba(255, 255, 255, 0.9); /* More opacity */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Darker border */
+    color: #000;
+    animation: fadeInUp 1.8s ease-in-out;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: #333;
+}
+
+/* Contact Button Animation */
+#sendMessageButton {
+    animation: pulse 2s infinite;
+}
+
+/* Portfolio Cards - Smooth Hover Effects */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.2s infinite;
+}
+
+.nav-link:hover {
+    color: #f8f9fa !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav" data-aos="fade-down">
+    <div class="container">
+        <!-- Logo Image -->
+        <a class="navbar-brand d-flex align-items-center" href="#home">
+           <img src="{{ url_for('static', filename='assets/img/banner.png') }}" alt="Logo" style="height: 60px; margin-right: 10px;">
+        </a>
+
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded active" href="#home">Home</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#services">Services</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Masthead -->
+    <header class="masthead text-center" data-aos="fade-down">
+    <div class="container d-flex align-items-center flex-column masthead-content">
+        <img class="masthead-avatar mb-5 rounded-circle" src="assets/img/profile.png" alt="..." data-aos="zoom-in">
+        <h1 class="masthead-heading text-uppercase mb-3" data-aos="fade-up">Transforming Data into Insights</h1>
+        <p class="masthead-subheading" data-aos="fade-up" data-aos-delay="200">Freelance Data Visualization & Dashboard Creation</p>
+    </div>
+</header>
+
+
+    <!-- Highlight Strip -->
+    <div class="highlight-strip">
+        Portfolio
+    </div>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-4" data-aos="fade-right">Portfolio</h2>
+        <div class="divider-custom"></div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/img/portfolio/cabin.png" class="card-img-top" alt="Unattached Athletics">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" data-aos="fade-left">Unattached Athletics</h5>
+                        <p class="card-text" data-aos="fade-left" data-aos-delay="200">
+                            A dashboard of historic track and field performances.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/img/portfolio/cake.png" class="card-img-top" alt="Amazon Sales Data">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" data-aos="fade-left">Sales Data Dashboard with Ml integrations</h5>
+                        <p class="card-text" data-aos="fade-left" data-aos-delay="200">
+                            Before: Raw sales numbers → After: Dashboard with trends.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/img/portfolio/circus.png" class="card-img-top" alt="Amazon Review Data">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" data-aos="fade-left">Oregon Electric Vehicle Purchases Dashboard</h5>
+                        <p class="card-text" data-aos="fade-left" data-aos-delay="200">
+                            Before: Messy data → After: Actionable insights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center text-uppercase text-secondary mb-4">Services</h2>
+            <div class="divider-custom"></div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <i class="fas fa-chart-bar fa-3x text-primary mb-3"></i>
+                        <h4 class="text-uppercase">Data Visualization</h4>
+                        <p>Transforming raw data into insightful visualizations for better decision-making.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <i class="fas fa-desktop fa-3x text-primary mb-3"></i>
+                        <h4 class="text-uppercase">Custom Dashboards</h4>
+                        <p>Creating interactive and user-friendly dashboards tailored to your needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                        <h4 class="text-uppercase">Development</h4>
+                        <p>Providing end-to-end development for your data projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center text-uppercase text-secondary mb-4">About</h2>
+            <div class="divider-custom"></div>
+            <div class="row">
+                <div class="col-lg-4 ms-auto">
+                    <p>I am a data enthusiast with a passion for turning numbers into stories. With years of experience in data visualization, dashboard design, and development, I help businesses and individuals make sense of their data.</p>
+                </div>
+                <div class="col-lg-4 me-auto">
+                    <p>My mission is to empower decision-makers by providing them with tools and insights that are both functional and visually appealing. Let me help you unlock the potential of your data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="text-center">
+    <div class="container">
+        <h2 class="text-uppercase">Pricing & Packages</h2>
+        <p>💰 <strong>Hourly Rate:</strong> 60.00/hr</p>
+        <p>🔄 <strong>Ongoing Support:</strong> Retainer options available</p>
+
+        <div class="row justify-content-center mt-4">
+            <!-- Power BI Dashboards -->
+            <div class="col-md-5">
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <h4 class="card-title">📊 Power BI Dashboards</h4>
+                        <ul class="list-unstyled">
+                            <li>✅ Custom Interactive Dashboards</li>
+                            <li>✅ Advanced Filters & Tooltips</li>
+                            <li>✅ Multi-Source Data Integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analysis & Reports -->
+            <div class="col-md-5">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h4 class="card-title">📑 Data Analysis & Reporting</h4>
+                        <ul class="list-unstyled">
+                            <li>✅ Data Cleaning & Visualization</li>
+                            <li>✅ Custom Data Reports</li>
+                            <li>✅ Automated Excel/CSV Reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Solutions & Retainer -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <h4 class="card-title">🛠️ Custom Solutions & Retainers</h4>
+                        <p>Need ongoing data support? I offer retainer-based consulting.</p>
+                        <p>💼 <strong>Retainer Packages:</strong> Starting at <strong>$1,000/month</strong></p>
+                        <p>📩 Contact me for a custom quote!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="#contact" class="btn btn-primary btn-lg">📩 Get a Free Quote</a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-secondary text-white">
+        <div class="container">
+            <h2 class="text-center text-uppercase mb-4">Contact Me</h2>
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <textarea class="form-control" id="message" rows="5" placeholder="Your Message *" required="required"></textarea>
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+   
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container text-center">
+            <h2 class="text-uppercase">Contact Me</h2>
+            <p>Email: <strong>jordan@jordanturnerdata.com</strong></p>
+            <p>LinkedIn: <a href="#">linkedin.com/in/jordan</a></p>
+            <p>📅 <a href="#">Book a Free Consultation</a> (Calendly)</p>
+        </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="text-muted">&copy; 2025 Jordan Turner. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+    AOS.init({
+        duration: 1200,  // Animation duration (ms)
+        once: true,      // Animate only once
+    });
+</script>
+
+</body>
+</html>
