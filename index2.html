@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jordan Turner's Portfolio</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <style>
+    /* Remove default body margins and padding */
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", "Lato", sans-serif;
+      background-color: #6b6e73;
+      color: #212529;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      animation: fadeInDown 1.2s ease-in-out;
+    }
+
+    /* Make the masthead fully span the width */
+    .masthead {
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: url("/jordanturner/static/fiverr 154.png")
+        no-repeat center center / cover;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      position: relative;
+      margin-bottom: 0; /* No extra spacing below masthead */
+    }
+    .masthead::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    .masthead-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .masthead-heading {
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+      animation: fadeInDown 1.5s ease, pulse 3s infinite;
+    }
+    .masthead-subheading {
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    /* Gallery in full width container */
+    .dashboard-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+    }
+    .dashboard-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+    .dashboard-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .dashboard-description {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Utility spacing (optional) */
+    .pt-5 {
+      padding-top: 3rem !important;
+    }
+    .pb-5 {
+      padding-bottom: 3rem !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Full-Width Navbar -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#home">
+        <img src="images/banner2.png" alt="Logo" />
+      </a>
+      <button
+        class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        Menu <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded active" href="#home"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio"
+              >Portfolio</a
+            >
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#services"
+              >Services</a
+            >
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about"
+              >About</a
+            >
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Full-Width Masthead -->
+  <header class="masthead" id="home">
+    <div class="masthead-content">
+      <h1 class="masthead-heading">Real Estate Market Dashboard</h1>
+      <p class="masthead-subheading">
+        A collection of Power BI visualizations showcasing real estate sales trends.
+      </p>
+    </div>
+  </header>
+
+  <!-- Full-Width Portfolio Section -->
+  <section id="portfolio" class="container-fluid pt-5 pb-5">
+    <div class="dashboard-gallery">
+      <img src="images/dashboard1.png" alt="Dashboard 1" />
+      <img src="images/dashboard2.png" alt="Dashboard 2" />
+      <img src="images/dashboard3.png" alt="Dashboard 3" />
+      <img src="images/dashboard4.png" alt="Dashboard 4" />
+    </div>
+
+    <div class="dashboard-description mt-4">
+      <h2>About This Dashboard</h2>
+      <p>
+        This Power BI dashboard provides insights into the real estate market, including sales
+        trends, property types, and regional pricing patterns. Each visualization helps in
+        understanding market behavior and decision-making.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section (Full-Width) -->
+  <section id="services" class="container-fluid pt-5 pb-5">
+    <!-- Your Services content goes here if needed -->
+  </section>
+
+  <!-- About Section (Full-Width) -->
+  <section id="about" class="container-fluid pt-5 pb-5">
+    <!-- Your About content goes here if needed -->
+  </section>
+
+  <!-- Contact Section (Full-Width) -->
+  <section id="contact" class="container-fluid pt-5 pb-5">
+    <!-- Your Contact content goes here if needed -->
+  </section>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>
+
