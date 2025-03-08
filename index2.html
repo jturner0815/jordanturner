@@ -41,7 +41,7 @@
       animation: fadeInDown 1.2s ease-in-out;
     }
 
-    /* Make the masthead fully span the width */
+    /* Masthead styling with overlay */
     .masthead {
       height: 60vh;
       display: flex;
@@ -117,55 +117,49 @@
       padding-bottom: 3rem !important;
     }
 
+    /* CONTACT SECTION with same overlay effect as masthead */
     #contact {
-    position: relative;
-    background: url("static/fiverr 154.png") no-repeat center center/cover;
-    color: #fff;
-    padding: 5rem 0;
-    animation: fadeInUp 2s ease-in-out;
-}
-
-#contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Increased darkness */
-    z-index: 1;
-}
-
-#contact .container {
-    position: relative;
-    z-index: 2;
-}
-
-#contact h2 {
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    animation: fadeInDown 1.5s ease-in-out;
-}
-
-/* Contact Form Enhancements */
-#contact input,
-#contact textarea {
-    background: rgba(255, 255, 255, 0.9); /* More opacity */
-    border: 2px solid rgba(255, 255, 255, 0.8); /* Darker border */
-    color: #000;
-    animation: fadeInUp 1.8s ease-in-out;
-}
-
-#contact input::placeholder,
-#contact textarea::placeholder {
-    color: #333;
-}
-
-/* Contact Button Animation */
-#sendMessageButton {
-    animation: pulse 2s infinite;
-}
-    
+      position: relative;
+      background: url("static/fiverr 154.png") no-repeat center center/cover;
+      color: #fff;
+      padding: 5rem 0;
+      animation: fadeInUp 2s ease-in-out;
+    }
+    #contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+    #contact .container {
+      position: relative;
+      z-index: 2;
+    }
+    #contact h2 {
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+    /* Contact Form Enhancements */
+    #contact input,
+    #contact textarea {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: #000;
+      animation: fadeInUp 1.8s ease-in-out;
+    }
+    #contact input::placeholder,
+    #contact textarea::placeholder {
+      color: #333;
+    }
+    /* Contact Button Animation */
+    #sendMessageButton {
+      animation: pulse 2s infinite;
+    }
   </style>
 </head>
 <body>
@@ -186,7 +180,7 @@
       >
         Menu <i class="fas fa-bars"></i>
       </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
@@ -195,9 +189,6 @@
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
-    </div>
-  </nav>
-
     </div>
   </nav>
 
@@ -232,72 +223,63 @@
 
   <!-- Services Section (Full-Width) -->
   <section id="services" class="container-fluid pt-5 pb-5">
-    <!-- Your Services content goes here if needed -->
+    <!-- Services content here if needed -->
   </section>
 
   <!-- About Section (Full-Width) -->
   <section id="about" class="container-fluid pt-5 pb-5">
-    <!-- Your About content goes here if needed -->
+    <!-- About content here if needed -->
   </section>
 
-  <!-- Contact Section (Full-Width) -->
-  <section id="contact" class="container-fluid pt-5 pb-5">
-    <!-- Your Contact content goes here if needed -->
+  <!-- CONTACT SECTION with same overlay look as masthead -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="text-center text-uppercase mb-4">Contact Me</h2>
+      <!-- Contact Form -->
+      <form id="contactForm" name="sentMessage" novalidate="novalidate">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <textarea class="form-control" id="message" rows="5" placeholder="Your Message *" required="required"></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">
+            Send Message
+          </button>
+        </div>
+      </form>
+      <!-- Contact Email Text -->
+      <div class="mt-5 text-center">
+        <p>Email: <strong>jordan@jordanturnerdata.com</strong></p>
+      </div>
+    </div>
   </section>
 
-      <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-secondary text-white">
-        <div class="container">
-            <h2 class="text-center text-uppercase mb-4">Contact Me</h2>
-            <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <textarea class="form-control" id="message" rows="5" placeholder="Your Message *" required="required"></textarea>
-                    <p class="help-block text-danger"></p>
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section>
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="text-muted">&copy; 2025 Jordan Turner. All Rights Reserved.</p>
+    </div>
+  </footer>
 
-  <!-- Contact Section -->
-    <section id="contact">
-        <div class="container text-center">
-            <h2 class="text-uppercase"></h2>
-            <p>Email: <strong>jordan@jordanturnerdata.com</strong></p>
-        </div>
-    </section>
-
-    <footer class="footer text-center">
-        <div class="container">
-            <p class="text-muted">&copy; 2025 Jordan Turner. All Rights Reserved.</p>
-        </div>
-    </footer>
-    <script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
     AOS.init({
-        duration: 1200,  // Animation duration (ms)
-        once: true,      // Animate only once
+      duration: 1200,  // Animation duration (ms)
+      once: true,      // Animate only once
     });
-</script>
-
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-  ></script>
+  </script>
 </body>
 </html>
-
