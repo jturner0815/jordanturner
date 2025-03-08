@@ -116,6 +116,56 @@
     .pb-5 {
       padding-bottom: 3rem !important;
     }
+
+    #contact {
+    position: relative;
+    background: url("static/fiverr 154.png") no-repeat center center/cover;
+    color: #fff;
+    padding: 5rem 0;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Increased darkness */
+    z-index: 1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+#contact h2 {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    animation: fadeInDown 1.5s ease-in-out;
+}
+
+/* Contact Form Enhancements */
+#contact input,
+#contact textarea {
+    background: rgba(255, 255, 255, 0.9); /* More opacity */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Darker border */
+    color: #000;
+    animation: fadeInUp 1.8s ease-in-out;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: #333;
+}
+
+/* Contact Button Animation */
+#sendMessageButton {
+    animation: pulse 2s infinite;
+}
+    
   </style>
 </head>
 <body>
